@@ -1,0 +1,26 @@
+url = "/account"
+layout = "default"
+title = "account"
+description = "account managment"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+requirePassword = 0
+==
+{% if user %}
+    <p>Hello {{ user.name }}</p>
+{% else %}
+    <p>Nobody is logged in</p>
+{% endif %}
+
+<a data-request="onLogout" data-request-data="redirect: '/good-bye'">Sign out</a>
+
+{% component 'account' %}
+
+
+{#{% do response(
+    ajaxHandler('onSignin').withVars({
+        token: session.token
+    })
+) %}  #}

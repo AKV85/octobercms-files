@@ -1,7 +1,7 @@
 /*
  * Media manager control class
  *
- * Dependences:
+ * Dependencies:
  * - Scrollpad (october.scrollpad.js)
  */
 +function ($) { "use strict";

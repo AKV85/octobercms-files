@@ -3,22 +3,18 @@
 # ===================================
 
 columns:
-
     code:
-        # Code
-        label: system::lang.updates.plugin_code
+        label: Code
         sortable: false
         type: partial
         path: column_code
 
     version:
-        # Version
-        label: system::lang.updates.plugin_version
+        label: Version
         sortable: false
 
     is_enabled:
-        # Enabled
-        label: system::lang.plugins.enabled
+        label: Enabled
         type: partial
         path: is_enabled
         sortable: false

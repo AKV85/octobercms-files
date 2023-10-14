@@ -1,4 +1,5 @@
 [backendLink]
+
 [sitePicker]
 ==
 {% set activeNavLink = activeNavLink|default(this.page.id) %}
@@ -18,6 +19,18 @@
 <li class="nav-item">
     <a class="nav-link {{ activeNavLink == 'components' ? 'active' }}" href="{{ 'components'|page }}">Components Demo</a>
 </li>
+<li class="nav-item">
+    <a class="nav-link {{ activeNavLink == 'account' ? 'active' }}" href="{{ 'account'|page }}">Account</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link {{ activeNavLink == 'forum' ? 'active' }}" href="{{ 'forum'|page }}">Forum</a>
+</li>
+<li class="nav-item">
+{% if user %}
+    <a href="#" data-request="onLogout" data-request-data="redirect: '/account'">Sign out</a>
+    {%endif%}
+</li>
+
 {% if sitePicker.isEnabled %}
     <li class="nav-item dropdown">
         <a class="btn btn-outline-light dropdown-toggle" href="{{ ''|page }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

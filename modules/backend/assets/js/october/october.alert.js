@@ -7,7 +7,7 @@
  * $.oc.alert()
  * $.oc.confirm()
  *
- * Dependences:
+ * Dependencies:
  * - Translations (october.lang.js)
  */
 (function($){

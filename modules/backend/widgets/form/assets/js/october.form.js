@@ -1,7 +1,7 @@
 /*
  * Form Widget
  *
- * Dependences:
+ * Dependencies:
  * - Nil
  */
 +function ($) { "use strict";
@@ -208,13 +208,25 @@
      * Calls an AJAX handler when the field updates.
      */
     FormWidget.prototype.onRefreshChangeField = function(ev) {
+        // @todo same approach in onRefreshDependents instead of debounce? -sg
+        if (!this.isCurrentFormContext(ev.target)) {
+            return;
+        }
+
         var $group = $(ev.target).closest('[data-change-handler]'),
             handler = $group.data('change-handler'),
             self = this;
 
-        $group.request(handler).done(function() {
+        var refreshData = paramToObj('data-refresh-data', self.options.refreshData);
+        $group.request(handler, {
+            data: refreshData
+        }).done(function() {
             self.toggleEmptyTabs();
         });
+    }
+
+    FormWidget.prototype.isCurrentFormContext = function(el) {
+        return el.closest('[data-control="formwidget"]') === this.$el.get(0);
     }
 
     /*

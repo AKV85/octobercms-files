@@ -59,6 +59,7 @@ module.exports = (mix) => {
         ...require('./assets/foundation/scripts/build.js').map(name => `modules/backend/assets/foundation/scripts/${name}`),
         ...require('./assets/foundation/controls/build.js').map(name => `modules/backend/assets/foundation/controls/${name}`),
         ...require('./assets/foundation/migrate/build.js').map(name => `modules/backend/assets/foundation/migrate/${name}`),
+        ...require('./assets/js/vueapp/build.js').map(name => `modules/backend/assets/js/vueapp/${name}`),
         ...require('./assets/js/build.js').map(name => `modules/backend/assets/js/${name}`),
     ], 'modules/backend/assets/js/october-min.js');
 
